@@ -1,7 +1,7 @@
 import { DriverPortal } from "@/components/driver-portal"
 
 export const metadata = {
-  title: "Become a Driver - AccessRide",
+  title: "Become a Driver - Safe Go",
   description: "Join our network of verified accessibility drivers. Earn while making a difference.",
 }
 

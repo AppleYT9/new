@@ -1,119 +1,59 @@
-import { Shield, Bell, Users, Eye, AlertTriangle } from "lucide-react"
+import { TranslatedText } from "@/components/translated-text"
+import { Shield, AlertCircle, Phone, MapPin, Share2, Eye } from "lucide-react"
 
 export function SafetyFeatures() {
-  return (
-    <section id="safety" className="py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center mb-16">
-          <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl text-balance">
-            Safety & Trust at Every Step
-          </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            Multiple layers of protection ensure your journey is secure and comfortable
-          </p>
-        </div>
+    const features = [
+        {
+            title: "Emergency SOS",
+            description: "Instant access to emergency services and contacts with a single tap.",
+            icon: AlertCircle,
+        },
+        {
+            title: "Live Trip Sharing",
+            description: "Share your live location and trip status with trusted family members.",
+            icon: Share2,
+        },
+        {
+            title: "24/7 Support",
+            description: "Round-the-clock dedicated support team for any assistance.",
+            icon: Phone,
+        },
+        {
+            title: "Real-Time Monitoring",
+            description: "Continuous ride monitoring to ensure route compliance.",
+            icon: Eye,
+        },
+        {
+            title: "Verified Drivers",
+            description: "Rigorous background checks and accessibility training.",
+            icon: Shield,
+        },
+        {
+            title: "Safe Locations",
+            description: "Pickups and drop-offs at verified safe and accessible points.",
+            icon: MapPin,
+        },
+    ]
 
-        <div className="grid gap-8 lg:grid-cols-2 max-w-5xl mx-auto mb-12">
-          <div className="rounded-2xl bg-card p-8 shadow-sm border border-border">
-            <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10">
-              <Shield className="h-7 w-7 text-primary" />
+    return (
+        <section className="py-24">
+            <div className="container px-4">
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl font-bold mb-4"><TranslatedText text="Uncompromised Safety" /></h2>
+                    <p className="text-muted-foreground max-w-2xl mx-auto"><TranslatedText text="Your safety is our top priority. We've built comprehensive safety features into every aspect of the ride." /></p>
+                </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {features.map((f, i) => (
+                        <div key={i} className="p-6 rounded-2xl border bg-card/50">
+                            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                                <f.icon className="h-5 w-5 text-primary" />
+                            </div>
+                            <h3 className="font-semibold mb-2"><TranslatedText text={f.title} /></h3>
+                            <p className="text-sm text-muted-foreground"><TranslatedText text={f.description} /></p>
+                        </div>
+                    ))}
+                </div>
             </div>
-            <h3 className="mb-4 text-2xl font-semibold text-balance">Verified Drivers</h3>
-            <ul className="space-y-3 text-muted-foreground leading-relaxed">
-              <li className="flex gap-2">
-                <span className="text-primary">✓</span>
-                <span>Comprehensive background checks and verification</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-primary">✓</span>
-                <span>Accessibility training and certification programs</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-primary">✓</span>
-                <span>Regular safety audits and driver reviews</span>
-              </li>
-            </ul>
-          </div>
-
-          <div className="rounded-2xl bg-card p-8 shadow-sm border border-border">
-            <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10">
-              <Eye className="h-7 w-7 text-primary" />
-            </div>
-            <h3 className="mb-4 text-2xl font-semibold text-balance">Real-Time Tracking</h3>
-            <ul className="space-y-3 text-muted-foreground leading-relaxed">
-              <li className="flex gap-2">
-                <span className="text-primary">✓</span>
-                <span>Live GPS tracking throughout your journey</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-primary">✓</span>
-                <span>Share trip details with family members</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-primary">✓</span>
-                <span>Automatic ETA updates and route monitoring</span>
-              </li>
-            </ul>
-          </div>
-
-          <div className="rounded-2xl bg-card p-8 shadow-sm border border-border">
-            <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-accent/10">
-              <Bell className="h-7 w-7 text-accent" />
-            </div>
-            <h3 className="mb-4 text-2xl font-semibold text-balance">SOS Panic Button</h3>
-            <ul className="space-y-3 text-muted-foreground leading-relaxed">
-              <li className="flex gap-2">
-                <span className="text-primary">✓</span>
-                <span>One-tap emergency alert system</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-primary">✓</span>
-                <span>Instant notification to emergency contacts</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-primary">✓</span>
-                <span>Auto emergency dial feature (concept)</span>
-              </li>
-            </ul>
-          </div>
-
-          <div className="rounded-2xl bg-card p-8 shadow-sm border border-border">
-            <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-accent/10">
-              <Users className="h-7 w-7 text-accent" />
-            </div>
-            <h3 className="mb-4 text-2xl font-semibold text-balance">Women's Safety Mode</h3>
-            <ul className="space-y-3 text-muted-foreground leading-relaxed">
-              <li className="flex gap-2">
-                <span className="text-primary">✓</span>
-                <span>Women-only driver preference option</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-primary">✓</span>
-                <span>Enhanced night travel safety alerts</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-primary">✓</span>
-                <span>Dedicated safety education and support</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="max-w-4xl mx-auto rounded-2xl bg-primary/5 p-8 border border-primary/20">
-          <div className="flex items-start gap-4">
-            <div className="flex-shrink-0">
-              <AlertTriangle className="h-6 w-6 text-primary" />
-            </div>
-            <div>
-              <h4 className="mb-2 font-semibold">Night Shift Safety Protocols</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Extra precautions for night rides including enhanced verification, brighter tracking, and priority
-                emergency response channels to ensure maximum safety during late hours.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+        </section>
+    )
 }

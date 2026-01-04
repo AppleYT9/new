@@ -1,7 +1,7 @@
-import { ElderlyMode } from "@/components/elderly-mode"
+import ElderlyMode from "@/components/elderly-mode"
 
 export const metadata = {
-  title: "Elderly Mode - AccessRide",
+  title: "Elderly Mode - Safe Go",
   description: "Simplified booking interface for senior citizens with larger text and easy navigation",
 }
 

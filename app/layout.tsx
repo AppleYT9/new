@@ -1,33 +1,25 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
+import { Plus_Jakarta_Sans } from "next/font/google"
+
 import { ThemeProvider } from "@/lib/theme-context"
+import { TranslationProvider } from "@/lib/translation-context"
 import "./globals.css"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-plus-jakarta",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
-  title: "AccessRide - AI-Powered Accessibility Ride Booking",
+  title: "Safe Go - AI-Powered Accessibility Ride Booking",
   description:
     "Wheelchair-accessible rides, elderly mode, and women's safety. Book verified WAV rides with AI-powered matching.",
   generator: "v0.app",
   icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
+    icon: "/favicon.png",
     apple: "/apple-icon.png",
   },
 }
@@ -38,11 +30,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`font-sans antialiased`}>
-        <ThemeProvider>{children}</ThemeProvider>
-        <Analytics />
+    <html lang="en" className={plusJakartaSans.variable}>
+      <body className={`${plusJakartaSans.className} antialiased`}>
+        <TranslationProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+        </TranslationProvider>
+
       </body>
     </html>
   )
 }
+

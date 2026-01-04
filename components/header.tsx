@@ -6,6 +6,8 @@ import { Accessibility } from "lucide-react"
 import { useTheme } from "@/lib/theme-context"
 import { Switch } from "@/components/ui/switch"
 import { Label } from "@/components/ui/label"
+import { LanguageSelector } from "@/components/language-selector"
+import { TranslatedText } from "@/components/translated-text"
 
 export function Header() {
   const { elderlyMode, toggleElderlyMode, pinkSafetyMode, togglePinkSafetyMode } = useTheme()
@@ -19,20 +21,21 @@ export function Header() {
               <Accessibility className="h-6 w-6" />
             </div>
             <span className="text-xl font-semibold text-balance">
-              AccessRide <span className="text-muted-foreground font-normal">AI</span>
+              Safe Go
             </span>
           </Link>
 
           <div className="hidden lg:flex items-center gap-4">
+            <LanguageSelector />
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted/50">
               <Label htmlFor="elderly-mode" className="text-xs font-medium cursor-pointer whitespace-nowrap">
-                ELDERLY MODE
+                <TranslatedText text="ELDERLY MODE" />
               </Label>
               <Switch id="elderly-mode" checked={elderlyMode} onCheckedChange={toggleElderlyMode} />
             </div>
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted/50">
               <Label htmlFor="pink-safety" className="text-xs font-medium cursor-pointer whitespace-nowrap">
-                PINK SAFETY
+                <TranslatedText text="PINK SAFETY" />
               </Label>
               <Switch id="pink-safety" checked={pinkSafetyMode} onCheckedChange={togglePinkSafetyMode} />
             </div>
@@ -40,10 +43,10 @@ export function Header() {
 
           <div className="flex items-center gap-3">
             <Button variant="ghost" size="sm" asChild className="hidden sm:flex">
-              <Link href="/login">Sign In</Link>
+              <Link href="/login"><TranslatedText text="Sign In" /></Link>
             </Button>
             <Button size="sm" asChild>
-              <Link href="/book">Book Now</Link>
+              <Link href="/book"><TranslatedText text="Book Now" /></Link>
             </Button>
           </div>
         </div>

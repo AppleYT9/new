@@ -28,7 +28,7 @@ export default function TrackPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <Link href="/" className="text-xl font-semibold">
-              AccessRide
+              Safe Go
             </Link>
             <Button variant="outline" size="sm" asChild className="rounded-xl bg-transparent">
               <Link href="/">Back to Home</Link>

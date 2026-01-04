@@ -1,51 +1,61 @@
-import { AlertCircle, Ban, TrendingUp } from "lucide-react"
+"use client"
+import { TranslatedText } from "@/components/translated-text"
+import { AlertTriangle, Clock, Ban } from "lucide-react"
+
+import Image from "next/image"
 
 export function ProblemStatement() {
-  return (
-    <section className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center mb-12">
-          <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl text-balance">The Problem We're Solving</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            Millions face daily transportation barriers that limit their independence and dignity
-          </p>
-        </div>
+    const problems = [
+        {
+            icon: AlertTriangle,
+            title: "Unreliable Options",
+            description: "Traditional transit often lacks reliability for specialized needs."
+        },
+        {
+            icon: Clock,
+            title: "Long Wait Times",
+            description: "Specialized transport can take hours to arrive."
+        },
+        {
+            icon: Ban,
+            title: "Lack of Accessibility",
+            description: "Many vehicles are simply not equipped for wheelchairs."
+        }
+    ]
 
-        <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
-          <div className="rounded-2xl bg-card p-8 shadow-sm border border-border">
-            <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-destructive/10">
-              <Ban className="h-7 w-7 text-destructive" />
+    return (
+        <section className="py-24 bg-background">
+            <div className="container px-4">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 className="text-3xl font-bold mb-6 leading-tight"><TranslatedText text="Mobility Should Be a Right, Not a Privilege" /></h2>
+                        <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+                            <TranslatedText text="For millions of people with mobility challenges, seniors, and women, finding safe and reliable transportation remains a daily struggle." />
+                        </p>
+                        <div className="space-y-6">
+                            {problems.map((p, i) => (
+                                <div key={i} className="flex gap-4">
+                                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-destructive/10 flex items-center justify-center">
+                                        <p.icon className="w-6 h-6 text-destructive" />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-semibold mb-1"><TranslatedText text={p.title} /></h3>
+                                        <p className="text-muted-foreground text-sm"><TranslatedText text={p.description} /></p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="relative aspect-square lg:aspect-auto h-full min-h-[400px] rounded-3xl bg-muted overflow-hidden">
+                        <Image
+                            src="https://images.unsplash.com/photo-1494515843206-f3117d3f51b7?q=80&w=2072&auto=format&fit=crop"
+                            alt="Illustration of transportation challenges"
+                            fill
+                            className="object-cover"
+                        />
+                    </div>
+                </div>
             </div>
-            <div className="mb-2 text-4xl font-bold">80%+</div>
-            <p className="text-sm font-medium mb-2">Wheelchair User Rejection Rate</p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Most ride services reject wheelchair users due to lack of accessible vehicles
-            </p>
-          </div>
-
-          <div className="rounded-2xl bg-card p-8 shadow-sm border border-border">
-            <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10">
-              <TrendingUp className="h-7 w-7 text-primary" />
-            </div>
-            <div className="mb-2 text-4xl font-bold">10-15%</div>
-            <p className="text-sm font-medium mb-2">Population with Mobility Needs</p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Millions of people require accessible transportation for daily activities
-            </p>
-          </div>
-
-          <div className="rounded-2xl bg-card p-8 shadow-sm border border-border">
-            <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-accent/10">
-              <AlertCircle className="h-7 w-7 text-accent" />
-            </div>
-            <div className="mb-2 text-4xl font-bold text-balance">Emergency Only</div>
-            <p className="text-sm font-medium mb-2">Ambulances Not for Daily Use</p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Ambulances serve emergencies, leaving a gap for routine transportation needs
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+        </section>
+    )
 }

@@ -29,7 +29,7 @@ export function DriverDashboard() {
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center gap-4">
               <Link href="/" className="text-xl font-semibold">
-                AccessRide Driver
+                Safe Go Driver
               </Link>
               <Badge className="bg-primary text-primary-foreground">Active</Badge>
             </div>

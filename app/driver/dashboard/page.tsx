@@ -1,7 +1,7 @@
 import { DriverDashboard } from "@/components/driver-dashboard"
 
 export const metadata = {
-  title: "Driver Dashboard - AccessRide",
+  title: "Driver Dashboard - Safe Go",
   description: "Manage your rides, earnings, and profile",
 }
 
